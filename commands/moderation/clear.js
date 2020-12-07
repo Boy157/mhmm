@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 const { Color } = require("../../config.js");
 
 module.exports = {
-  name: "clear",
+  name: "purge",
   aliases: ["purge", "clearmsgs"],
   description: "Clear Your Messages!",
   usage: "Clear <Message Amount>",
@@ -37,15 +37,13 @@ module.exports = {
       let embed = new Discord.MessageEmbed()
         .setColor(Color)
         .setTitle(`Messages Deleted!`)
-        .addField(`Moderator`, `${message.author.tag} (${message.author.id}`)
-        .addField(`Channel`, `${message.channel.name} (${message.channel.id}`)
+        .addField(`Channel`, `${message.channel.name}`)
         .addField(`Deleted Messages`, `${Message.size}`)
-        .addField(`Reason`, `${Reason}`)
         .setFooter(`Requested by ${message.author.username}`)
         .setTimestamp();
       return message.channel
         .send(embed)
-        .then(msg => msg.delete({ timeout: 10000 }));
+        .then(msg => msg.delete({ timeout: 3000 }));
     });
 
     //End

@@ -50,8 +50,8 @@ module.exports = {
       let embed = new Discord.MessageEmbed()
         .setColor(Color)
         .setTitle(`Member Kicked!`)
-        .addField(`Moderator`, `${message.author.tag} (${message.author.id}`)
-        .addField(`Kicked Member`, `${Member.tag} (${Member.id})`)
+        .addField(`Moderator`, `${message.author.tag}`)
+        .addField(`Kicked Member`, `${Member.tag}`)
         .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
         .setFooter(`Requested by ${message.author.username}`)
         .setTimestamp();

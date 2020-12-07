@@ -31,8 +31,8 @@ module.exports = {
     let Embed = new MessageEmbed()
       .setColor(Color)
       .setTitle(`Member Unmuted!`)
-      .addField(`Moderator`, `${message.author.tag} (${message.author.id}`)
-      .addField(`Unmuted Member`, `${Member.user.tag} (${Member.user.id})`)
+      .addField(`Moderator`, `${message.author.tag}`)
+      .addField(`Unmuted Member`, `${Member.user.tag}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
 
