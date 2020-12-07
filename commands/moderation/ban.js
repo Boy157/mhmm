@@ -48,8 +48,8 @@ module.exports = {
       let embed = new Discord.MessageEmbed()
         .setColor(Color)
         .setTitle(`Member Banned!`)
-        .addField(`Moderator`, `${message.author.tag} (${message.author.id}`)
-        .addField(`Banned Member`, `${Member.tag} (${Member.id})`)
+        .addField(`Moderator`, `${message.author.tag}`)
+        .addField(`Banned Member`, `${Member.tag}`)
         .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
         .setFooter(`Requested by ${message.author.username}`)
         .setTimestamp();
