@@ -6,7 +6,7 @@ module.exports = {
   name: "purge",
   aliases: ["purge", "clearmsgs"],
   description: "Clear Your Messages!",
-  usage: "Clear <Message Amount>",
+  usage: "purge <Message Amount>",
   run: async (client, message, args) => {
     //Start
     message.delete();
