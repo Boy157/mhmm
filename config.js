@@ -1,3 +1,3 @@
-exports.Prefix = `PREFIX OF YOUR BOT`;//your prefix for bot
-exports.Token = `TOKEN OF YOUR BOT`;//your token 
-exports.Color = `COLOR OF ALL EMBEDES`;//color   of embed
+exports.Prefix = `!`;
+exports.Token = `Nzg1MzE0Njg1NjUzNzQ1Njk1.X82DSw.Hzw7xbOSDqdgMOiv4QteP7eS5oQ`;
+exports.Color = `RANDOM`;
