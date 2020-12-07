@@ -9,6 +9,8 @@ module.exports = {
   usage: "Warn <Mention User> | <Reason>",
   run: async (client, message, args) => {
     //Start
+    message.delete();
+    
     if (!message.member.hasPermission("BAN_MEMBERS"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`

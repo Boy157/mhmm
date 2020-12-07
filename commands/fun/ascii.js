@@ -12,8 +12,6 @@ module.exports = {
   usage: "Ascii <Text>",
   run: async (client, message, args) => {
     //Start
-
-    message.delete();
     
     let Content = args.join(" ");
 

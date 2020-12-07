@@ -88,4 +88,6 @@ client.login(Token);
 
 let count = 0
 setInterval(() =>
-    require(`node-fetch`))
+    require('node-fetch')(process.env.URL)
+    .then(() => console.log(`[${++count}] Kept ${process.env.URL} alive.`))
+, 5 * 60 * 1000);

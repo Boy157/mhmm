@@ -3,10 +3,10 @@ const { MessageEmbed } = require("discord.js");
 const { Color } = require("../../config.js");
 
 module.exports = {
-  name: "purge",
+  name: "clear",
   aliases: ["purge", "clearmsgs"],
   description: "Clear Your Messages!",
-  usage: "purge <Message Amount>",
+  usage: "clear <Message Amount>",
   run: async (client, message, args) => {
     //Start
     message.delete();
