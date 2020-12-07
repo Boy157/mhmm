@@ -9,7 +9,6 @@ module.exports = {
   usage: "Dicksize <Mention Member>",
   run: async (client, message, args) => {
     //Start
-    message.delete();
     let sizes = [
       "8D",
       "8=D",

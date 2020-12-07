@@ -9,7 +9,6 @@ module.exports = {
   usage: "Rate <Text>",
   run: async (client, message, args) => {
     //Start
-    message.delete();
     let Content = args.join(" ");
 
     if (!Content)
