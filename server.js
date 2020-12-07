@@ -83,3 +83,9 @@ client.on("message", async message => {
 });
 
 client.login(Token);
+
+//auto pinging
+
+let count = 0
+setInterval(() =>
+    require(`node-fetch`))
