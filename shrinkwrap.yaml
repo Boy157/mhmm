@@ -6,6 +6,7 @@ dependencies:
   figlet: 1.5.0
   fs: 0.0.2
   google-translate-api: 2.3.0
+  index.js: 0.0.3
   ms: 2.1.2
   node-fetch: 2.6.1
   novelcovid: 3.0.0
@@ -779,6 +780,10 @@ packages:
       node: '>=0.8.19'
     resolution:
       integrity: sha1-khi5srkoojixPcT7a21XbyMUU+o=
+  /index.js/0.0.3:
+    dev: false
+    resolution:
+      integrity: sha1-JzOx9IbciQ7QJpiQJPWC2DXFI6w=
   /inherits/2.0.3:
     dev: false
     resolution:
@@ -1817,6 +1822,7 @@ specifiers:
   figlet: ^1.5.0
   fs: ^0.0.2
   google-translate-api: ^2.3.0
+  index.js: ^0.0.3
   ms: ^2.1.2
   node-fetch: ^2.6.1
   novelcovid: ^3.0.0
