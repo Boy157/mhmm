@@ -53,7 +53,6 @@ modules.forEach(function(module) {
 });
 
 client.on("message", async message => {
-var prefixCommand = message.content.split(' ')[0].replace(guildConf[message.guild.id].prefix, ''); // Replaces the Current Prefix with this
 let prefix = (`${message.guild.id}-prefix`)|| ".";
     if (message.author.bot) return;
     if (!message.guild) return;

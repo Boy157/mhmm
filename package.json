@@ -23,7 +23,8 @@
     "google-translate-api": "^2.3.0",
     "discord-prefix": "^1.1.0",
     "enmap": "^5.8.3",
-    "index.js": "^0.0.3"
+    "index.js": "^0.0.3",
+    "mongoose": "^5.12.1"
   },
   "engines": {
     "node": "12.x"
