@@ -12,8 +12,8 @@ module.exports = {
 
         const lol = new MessageEmbed()
         .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-        .setDescription("<a:negative_squared_cross_mark:793709920104480769> Please enter a status type!")
-        .setColor('BLUE')
+        .setDescription("<a:no_entry_sign:793709920104480769> Please enter a status type!")
+        .setColor('RANDOM')
         if (!splitt[0]) return message.channel.send(lol);
 
 
@@ -21,35 +21,35 @@ module.exports = {
                 client.user.setStatus('dnd')
                 const sux = new MessageEmbed()
                     .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-                    .setDescription("<a:white_check_mark:793709920104480769> Status changed to `do not disturb`!")
-                    .setColor('BLUE')
+                    .setDescription("<a:no_entry:793709920104480769> Status changed to `do not disturb`!")
+                    .setColor('RANDOM')
                     message.channel.send(sux)
             } else {
                 if(content === 'online') {
                     client.user.setStatus('online')
                     const sux = new MessageEmbed()
                     .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-                    .setDescription("<a:white_check_mark:793709920104480769> Status changed to `online`!")
-                    .setColor('BLUE')
+                    .setDescription("<a:online:793709920104480769> Status changed to `online`!")
+                    .setColor('RANDOM')
                     message.channel.send(sux)
                 } else {
                     if(content === 'idle') {
                         client.user.setStatus('idle')
                         const sux = new MessageEmbed()
                     .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-                    .setDescription("<a:white_check_mark:793709920104480769> Status changed to `idle`!")
-                    .setColor('BLUE')
+                    .setDescription("<a:crescent_moon:793709920104480769> Status changed to `idle`!")
+                    .setColor('RANDOM')
                     message.channel.send(sux)
                     } else {
                         if(content != ['dnd', 'online', 'idle']) {
                             const meh = new MessageEmbed()
                             .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-                            .setDescription(`<a:no_:793709920104480769> Please enter a **valid** status type!
+                            .setDescription(`<a:exclamation:793709920104480769> Please enter a **valid** status type!
                             **Options:**
                             dnd (do not disturb)
                             online
                             idle`)
-                            .setColor('BLUE')
+                            .setColor('RANDOM')
                             return message.channel.send(meh)
                         } 
                     
