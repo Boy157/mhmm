@@ -4,7 +4,7 @@ const { Color } = require("../../config.js");
 
 module.exports = {
     name: "slowmode",
-    aliases: ["slow, sm"],
+    aliases: ["slow", "sm"],
     argsType: 'multiple',
     description: "Change the slowmode durations",
     run: async (client, message, args) => {

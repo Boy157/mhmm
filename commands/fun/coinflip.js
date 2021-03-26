@@ -4,7 +4,7 @@ const { Color } = require("../../config.js");
 
 module.exports = {
   name: "coinflip",
-  aliases: ["toss", "flip"],
+  aliases: ["toss", "flip", "cf"],
   description: "Flip A Coin!",
   usage: "Coinflip",
   run: async (client, message, args) => {
