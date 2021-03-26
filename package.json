@@ -21,7 +21,8 @@
     "ms": "^2.1.2",
     "weather-js": "^2.0.0",
     "google-translate-api": "^2.3.0",
-    "discord-prefix": "^1.1.0"
+    "discord-prefix": "^1.1.0",
+    "enmap": "^5.8.3"
   },
   "engines": {
     "node": "12.x"
