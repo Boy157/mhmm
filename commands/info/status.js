@@ -44,7 +44,7 @@ module.exports = {
                         if(content != ['dnd', 'online', 'idle']) {
                             const meh = new MessageEmbed()
                             .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-                            .setDescription(`<a:negative_squared_cross_mark:793709920104480769> Please enter a **valid** status type!
+                            .setDescription(`<a:no_:793709920104480769> Please enter a **valid** status type!
                             **Options:**
                             dnd (do not disturb)
                             online

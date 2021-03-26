@@ -9,11 +9,10 @@ module.exports = {
   usage: "Ping",
   run: async (client, message, args) => {
     //Start
-    message.delete();
 
     const embed = new MessageEmbed()
-      .setColor(Color)
-      .setDescription(`:ping_pong: Pong = ${client.ws.ping}`)
+      .setColor("RANDOM")
+      .setDescription(`:ping_pong: Pong = ${client.ws.ping} ms`)
       .setFooter(`Requested By ${message.author.username}`)
       .setTimestamp();
 
