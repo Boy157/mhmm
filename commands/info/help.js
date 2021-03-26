@@ -11,15 +11,15 @@ module.exports = {
     
     
     let embed = new MessageEmbed()
-    .setColor(Color)
+    .setColor("RANDOM")
     .setTitle(`${client.user.username} Commands!`)
-    .setDescription(`Use ${Prefix}Help <Command Name> For More Command Information!` + 
-    "\n\n**:smile: Fun :smile:**\n`Avatar, Coinflip, Howgay, Meme, Translate, Rate, Dicksize, Ascii, Hack, Randomnumber, Snipe`" + "\n\n" + 
-                    "**Moderation**\n`Purge, Nuke, Mute, Unmute, Lock, Unlock, Kick, Ban, Unban, Warn, Slowmode`" + "\n\n"+
-    "**Information**\n`Help, Weather, Userinfo, Ping, Invite, Invitebot`")
+    .setDescription(`**Atreus Available Commands! and ;;help (command) for more information**` + 
+    "\n\n**:smile: Fun**\n`Avatar, Coinflip, Howgay, Meme, Translate, Rate, Dicksize, Ascii, Hack, Randomnumber, Snipe`" + "\n\n" + 
+                    "**:shield: Moderation**\n`Purge, Nuke, Mute, Unmute, Lock, Unlock, Kick, Ban, Unban, Warn, Slowmode`" + "\n\n"+
+    "**:scroll: Information**\n`Help, Weather, Userinfo, Ping, Invite, Invitebot`")
     .setFooter(`Requested By ${message.author.username}`)
     .setTimestamp();
-    
+
     if (!args.length) return message.channel.send(embed);
 
     let cmd =
