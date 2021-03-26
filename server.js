@@ -1,15 +1,18 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const client = new Discord.Client();
-const { Prefix, Token, Color } = require("./config.js");
+const client = new Discord.Client({
+  disabledEveryone: true
+});
+const db = require("quick.db");
+const fetch = require("node-fetch");
+const { Prefix, Token, Color } = require(".env");
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
-client.db = require("quick.db");
 
 client.on("ready", async () => {
-  console.log(`ready!`);
+  console.log(`Ready`);
   client.user
-    .setActivity(`;;help`, { type: "PLAYING" })
+    .setActivity(`;;help | Ploso Guild`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
 
@@ -49,11 +52,12 @@ modules.forEach(function(module) {
 });
 
 client.on("message", async message => {
-  if (message.channel.type === "dm") return;
   if (message.author.bot) return;
-  if (!message.guild) return;
-  if (!message.member)
-    message.member = await message.guild.fetchMember(message);
+    if (!message.guild) return;
+    let prefix = db.get(`prefix_${message.guild.id}`);
+    if (prefix === null) prefix = exports.Prefix;
+    if (!message.member)
+      message.member = await message.guild.fetchMember(message);
 
   if (!message.content.startsWith(Prefix)) return;
 
@@ -77,17 +81,27 @@ client.on("message", async message => {
       );
     command.run(client, message, args);
   }
-  console.log(  
+  console.log(
     `User : ${message.author.tag} (${message.author.id}) Server : ${message.guild.name} (${message.guild.id}) Command : ${command.name}`
   );
 });
 
-client.login(Token);
+setInterval(async () => {
+  await fetch("https://agung-project.glitch.me").then(console.log("Pinged!"));
+}, 240000);
 
-//auto pinging
+client.snipe = new Map();
 
-let count = 0
-setInterval(() =>
-    require('node-fetch')(process.env.URL)
-    .then(() => console.log(`[${++count}] Kept ${process.env.URL} alive.`))
-, 5 * 60 * 1000);
+client.on("messageDelete", async (message, channel) => {
+  if (message.author.bot) return;
+  if (!message.guild) return;
+  client.snipe.set(message.channel.id, {
+    msg: message.content,
+    user: message.author.tag,
+    profilephoto: message.author.displayAvatarURL(),
+    image: message.attachments.first()
+      ? message.attachments.first().proxyURL
+      : null
+  });
+});
+client.login(process.env.Token);
