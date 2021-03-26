@@ -1,4 +1,5 @@
 dependencies:
+  discord-prefix: 1.1.0
   discord.js: 12.5.1
   express: 4.17.1
   figlet: 1.5.0
@@ -128,6 +129,14 @@ packages:
     dev: false
     resolution:
       integrity: sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
+  /better-sqlite3/5.4.3:
+    dependencies:
+      integer: 2.1.0
+      tar: 4.4.13
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-fPp+8f363qQIhuhLyjI4bu657J/FfMtgiiHKfaTsj3RWDkHlWC1yT7c6kHZDnBxzQVoAINuzg553qKmZ4F1rEw==
   /better-sqlite3/7.1.1:
     dependencies:
       bindings: 1.5.0
@@ -335,6 +344,12 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
+  /discord-prefix/1.1.0:
+    dependencies:
+      better-sqlite3: 5.4.3
+    dev: false
+    resolution:
+      integrity: sha512-tdF0c5ARmNTkQEkwv4YbsXXqskWsAq2Sg9ziW7sNb/I/dPJKf61H2C/4YuwmcQbO6tGebZZ6fHhe7ZoKnXjkew==
   /discord.js/12.5.1:
     dependencies:
       '@discordjs/collection': 0.1.6
@@ -743,6 +758,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-RZY5huIKCMRWDUqZlEi72f/lmXKMvuszcMBduliQ3nnWbx9X/ZBQO7DijMEYS9EhHBb2qacRUMtC7svLwe0lcw==
+  /integer/2.1.0:
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-vBtiSgrEiNocWvvZX1RVfeOKa2mCHLZQ2p9nkQkQZ/BvEiY+6CcUz0eyjvIiewjJoeNidzg2I+tpPJvpyspL1w==
   /ipaddr.js/1.9.1:
     dev: false
     engines:
@@ -1481,6 +1501,20 @@ packages:
       node: '>=4.5'
     resolution:
       integrity: sha512-g2SVs5QIxvo6OLp0GudTqEf05maawKUxXru104iaayWA09551tFCTI8f1Asb4lPfkBr91k07iL4c11XO3/b0tA==
+  /tar/4.4.13:
+    dependencies:
+      chownr: 1.1.4
+      fs-minipass: 1.2.7
+      minipass: 2.9.0
+      minizlib: 1.3.3
+      mkdirp: 0.5.5
+      safe-buffer: 5.2.1
+      yallist: 3.1.1
+    dev: false
+    engines:
+      node: '>=4.5'
+    resolution:
+      integrity: sha512-w2VwSrBoHa5BsSyH+KxEqeQBAllHhccyMFVHtGtdMpF4W7IRWfZjFiQceJPChOeTsSDVUpER2T8FA93pr0L+QA==
   /timed-out/4.0.1:
     dev: false
     engines:
@@ -1680,6 +1714,7 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
+  discord-prefix: ^1.1.0
   discord.js: ^12.5.0
   express: ^4.17.1
   figlet: ^1.5.0
