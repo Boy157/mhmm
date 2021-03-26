@@ -30,7 +30,7 @@ module.exports = {
                     const sux = new MessageEmbed()
                     .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
                     .setDescription("<a:online:793709920104480769> Status changed to `online`!")
-                    .setColor('BLUE')
+                    MessageEmbed')
                     message.channel.send(sux)
                 } else {
                     if(content === 'idle') {
@@ -38,7 +38,7 @@ module.exports = {
                         const sux = new MessageEmbed()
                     .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
                     .setDescription("<a:crescent_moon:793709920104480769> Status changed to `idle`!")
-                    .setColor('BLUE')
+                    .setColor('RANDOM')
                     message.channel.send(sux)
                     } else {
                         if(content != ['dnd', 'online', 'idle']) {
