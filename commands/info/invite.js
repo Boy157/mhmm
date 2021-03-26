@@ -13,10 +13,10 @@ module.exports = {
     
         if(textChannel) {
             msg = args.slice(1).join(" ");
-            textChannel.send('https://discord.gg/HCnbjPJM7Y')
+            textChannel.send('https://discord.gg/pWGhC3f')
       } else {
           msg = args.join(" ");
-          message.channel.send('https://discord.gg/HCnbjPJM7Y')
+          message.channel.send('https://discord.gg/pWGhC3f')
       }
    }
 }

@@ -22,7 +22,7 @@ module.exports = {
       let embed = new Discord.MessageEmbed()
         .setColor(Color)
         .setTitle(`Invite Me!`)
-        .setDescription(`[Click here to invite](https://discord.com/api/oauth2/authorize?client_id=785314685653745695&permissions=8&scope=bot)`)
+        .setDescription(`[Click here to invite](https://discord.com/oauth2/authorize?client_id=824900752832593940&permissions=8&scope=bot)`)
         .setFooter(`Requested by ${message.author.username}`)
         .setTimestamp();
         message.channel.send(embed);
