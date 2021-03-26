@@ -23,8 +23,8 @@ module.exports = {
 
         var rand = list[Math.floor(Math.random() * list.length)];
         const newEmbed = new Discord.MessageEmbed()
-            .setColor('#FEB038')
-            .setTitle('Sweet hug for')
+            .setColor('RANDOM')
+            .setTitle('This sweet hug for you')
             // .setURL()
             .setDescription(member)
             .setImage(rand)

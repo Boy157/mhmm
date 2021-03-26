@@ -87,8 +87,8 @@ client.on("message", async message => {
 });
 
 setInterval(async () => {
-  await fetch("https://agung-project.glitch.me").then(console.log("Pinged!"));
-}, 240000);
+  await fetch("https://aiuwhdiuawhdiuawduhaw.glitch.me").then(console.log("Pinged!"));
+}, 24000);
 
 client.snipe = new Map();
 
