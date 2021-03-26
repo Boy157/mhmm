@@ -10,12 +10,13 @@ module.exports = {
   run: async (client, message, args) => {
     //Start
     message.delete();
-    if (!message.member.hasPermission("BAN_MEMBERS"))
+    if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
       );
 
-    let Member = message.mentions.users.first();
+    let Member = message.mentions.users.first() || message.guild.members.cache.get(args[0]);
+    
 
     if (!Member)
       return message.channel.send(
@@ -29,7 +30,7 @@ module.exports = {
       return message.channel.send(`You Can't Ban Your Self!`);
 
     if (Member.id === client.user.id)
-      return message.channel.send(`Please Don't Ban Me ;-;`);
+      return message.channel.send(`Please Don't Ban Me :'(`);
 
     if (Member.id === message.guild.owner.user.id)
       return message.channel.send(`You Can't Ban Owner Of Server!`);
@@ -67,7 +68,7 @@ module.exports = {
     } catch (error) {
       return message.channel
         .send(
-          `I Can't Ban That Member Maybe Member Has Higher Role Than Me & My Role Is Lower Than Member!`
+          `I Can't Ban That Member Maybe Member Has Higher Role Than Me & My Role Is Lower Than Him!`
         )
         .then(() => console.log(error));
     }

@@ -18,7 +18,7 @@ module.exports = {
 
     let embed = new MessageEmbed()
       .setColor(Color)
-      .setTitle(`Gay v2 Machine`)
+      .setTitle(`Gay Machine`)
       .setDescription(`${Member.user.username} Is ${Result}% Gay 🏳️‍🌈`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();

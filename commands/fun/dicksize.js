@@ -39,8 +39,8 @@ module.exports = {
 
     let embed = new MessageEmbed()
       .setColor(Color)
-      .setTitle(`Pp v2 Machine`)
-      .setDescription(`${Member.user.username} pp Size Is\n${Result}`)
+      .setTitle(`Pp Machine`)
+      .setDescription(`${Member.user.username}'s PP Is\n${Result}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
 

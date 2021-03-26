@@ -9,14 +9,14 @@ module.exports = {
   usage: "Help | <Command Name>",
   run: async(client, message, args) => {
     
-    message.delete();
     
     let embed = new MessageEmbed()
     .setColor(Color)
     .setTitle(`${client.user.username} Commands!`)
     .setDescription(`Use ${Prefix}Help <Command Name> For More Command Information!` + 
-    "\n\n**Fun**\n`Avatar, Coinflip, Howgay, Meme, Rate, 8ball, Dicksize, Ascii, Choose, Hack, Randomnumber`" + "\n\n" + "**Moderation**\n`Clear, Mute, Unmute, Tempmute, Kick, Ban, Unban, Tempban, Warn, Warnings, ResetWarns`" + "\n\n"+
-    "**Information**\n`Help, Covid, Weather, Userinfo, Serverinfo, Ping`")
+    "\n\n**Fun**\n`Avatar, Coinflip, Howgay, Meme, Translate, Rate, Dicksize, Ascii, Hack, Randomnumber, Snipe`" + "\n\n" + 
+                    "**Moderation**\n`Purge, Nuke, Mute, Unmute, Lock, Unlock, Kick, Ban, Unban, Warn, Slowmode`" + "\n\n"+
+    "**Information**\n`Help, Weather, Userinfo, Ping, Invite, Invitebot`")
     .setFooter(`Requested By ${message.author.username}`)
     .setTimestamp();
     

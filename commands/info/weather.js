@@ -10,7 +10,6 @@ module.exports = {
   usage: "Weather <Location>",
   run: async (client, message, args) => {
     //Start
-    message.delete();
 
     if (!args[0]) return message.channel.send("Please Give Location!");
 
@@ -35,7 +34,7 @@ module.exports = {
         .addField("Humidity", `${current.humidity}%`, true)
         .addField("Wind", current.winddisplay, true)
         .addField("Feels Like", `${current.feelslike}°`, true)
-        .addField("Timezone", `UTC${location.timezone}`, true)
+        .addField("Timezone", `GMT+${location.timezone}`, true)
         .setTimestamp();
 
       message.channel.send(Weather);
