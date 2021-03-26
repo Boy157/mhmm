@@ -5,6 +5,7 @@ const client = new Discord.Client({
 });
 const db = require("quick.db");
 const fetch = require("node-fetch");
+const Enmap = require('enmap');
 const { Prefix, Color } = require("./config.js");
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -54,7 +55,7 @@ modules.forEach(function(module) {
 client.on("message", async message => {
   if (message.author.bot) return;
     if (!message.guild) return;
-    let prefix = db.get(`prefix_${message.guild.id}`);
+    let prefix = this.db.get(`${message.guild.id}-prefix`)|| ".";
     if (prefix === null) prefix = exports.Prefix;
     if (!message.member)
       message.member = await message.guild.fetchMember(message);
