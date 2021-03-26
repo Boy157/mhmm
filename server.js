@@ -89,7 +89,7 @@ client.on("message", async message => {
 
 setInterval(async () => {
   await fetch("https://aiuwhdiuawhdiuawduhaw.glitch.me").then(console.log("Pinged!"));
-}, 24000);
+}, 240000);
 
 client.snipe = new Map();
 
