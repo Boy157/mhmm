@@ -53,7 +53,8 @@ modules.forEach(function(module) {
 });
 
 client.on("message", async message => {
-  if (message.author.bot) return;
+let prefix = (`${message.guild.id}-prefix`)|| ".";
+    if (message.author.bot) return;
     if (!message.guild) return;
     if (prefix === null) prefix = exports.Prefix;
     if (!message.member)

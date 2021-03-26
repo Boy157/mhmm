@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const { Color } = require("../../config.js");
+const Prefix = require("enmap");
 
 module.exports = {
   name: "prefix",
