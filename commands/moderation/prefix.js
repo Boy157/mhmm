@@ -1,20 +1,40 @@
+const prefix = require("discord-prefix");
 const Discord = require("discord.js");
-const { MessageEmbed } = require("discord.js");
-const { Color } = require("../../config.js");
-const Prefix = require("enmap");
 
-module.exports = {
-  name: "prefix",
-  aliases: [],
-  description: "Change prefix!",
-  usage: "(prefix) (new prefix)",
-  run: async (client, message, args) => {
-  let prefix = args.join(" ")
-    //Start
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You dont have a permission to use this command!")
-    if(!prefix) return message.reply("Please enter a new prefix");
-    (`${message.guild.id}-prefix`, prefix)
-    return message.channel.send(`Set the prefix to **${prefix}**`)
+module.exports.run = async (bot, message, args) => {
+    const data = await prefix.findOne({
+        GuildID: message.guild.id
+    });
+
+    if (!args[0]) return message.channel.send('You must provide a **new prefix**!');
+
+    if (args[0].length > 5) return message.channel.send('Your new prefix must be under \`5\` characters!')
+
+    if (data) {
+        await prefix.findOneAndRemove({
+            GuildID: message.guild.id
+        })
+        
+        message.channel.send(`The new prefix is now **\`${args[0]}\`**`);
+
+        let newData = new prefix({
+            Prefix: args[0],
+            GuildID: message.guild.id
+        })
+        newData.save();
+    } else if (!data) {
+        message.channel.send(`The new prefix is now **\`${args[0]}\`**`);
+
+        let newData = new prefix({
+            Prefix: args[0],
+            GuildID: message.guild.id
+        })
+        newData.save();
     }
+
 }
-  
+
+module.exports.config = {
+    name: "setprefix",
+    aliases: []
+}
