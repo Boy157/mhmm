@@ -10,8 +10,8 @@ module.exports = {
   run: async (client, message, args) => {
   let prefix = args.join(" ")
     //Start
-    if (!message.member.permission.has("ADMINISTRATOR")) return message.rep
-    client.db.set(`${message.guild.id}-prefix`, prefix)
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.rep
+    (`${message.guild.id}-prefix`, prefix)
     return message.channel.send(`Set the prefix to **${prefix}**`)
     }
 }
