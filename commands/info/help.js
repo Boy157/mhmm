@@ -14,7 +14,7 @@ module.exports = {
     .setColor(Color)
     .setTitle(`${client.user.username} Commands!`)
     .setDescription(`Use ${Prefix}Help <Command Name> For More Command Information!` + 
-    "\n\n**Fun**\n`Avatar, Coinflip, Howgay, Meme, Translate, Rate, Dicksize, Ascii, Hack, Randomnumber, Snipe`" + "\n\n" + 
+    "\n\n**:smile: Fun :smile:**\n`Avatar, Coinflip, Howgay, Meme, Translate, Rate, Dicksize, Ascii, Hack, Randomnumber, Snipe`" + "\n\n" + 
                     "**Moderation**\n`Purge, Nuke, Mute, Unmute, Lock, Unlock, Kick, Ban, Unban, Warn, Slowmode`" + "\n\n"+
     "**Information**\n`Help, Weather, Userinfo, Ping, Invite, Invitebot`")
     .setFooter(`Requested By ${message.author.username}`)

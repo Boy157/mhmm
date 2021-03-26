@@ -12,7 +12,7 @@ client.aliases = new Discord.Collection();
 client.on("ready", async () => {
   console.log(`Ready`);
   client.user
-    .setActivity(`;;help | Ploso Guild`, { type: "PLAYING" })
+    .setActivity(`;;help`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
 
