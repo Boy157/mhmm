@@ -21,7 +21,7 @@ module.exports = {
                 client.user.setStatus('dnd')
                 const sux = new MessageEmbed()
                     .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-                    .setDescription("<a:no_entry:793709920104480769> Status changed to `do not disturb`!")
+                    .setDescription("<a:white_check_mark:793709920104480769> Status changed to `do not disturb`!")
                     .setColor('BLUE')
                     message.channel.send(sux)
             } else {
@@ -29,22 +29,22 @@ module.exports = {
                     client.user.setStatus('online')
                     const sux = new MessageEmbed()
                     .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-                    .setDescription("<a:online:793709920104480769> Status changed to `online`!")
-                    MessageEmbed')
+                    .setDescription("<a:white_check_mark:793709920104480769> Status changed to `online`!")
+                    .setColor('BLUE')
                     message.channel.send(sux)
                 } else {
                     if(content === 'idle') {
                         client.user.setStatus('idle')
                         const sux = new MessageEmbed()
                     .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-                    .setDescription("<a:crescent_moon:793709920104480769> Status changed to `idle`!")
-                    .setColor('RANDOM')
+                    .setDescription("<a:white_check_mark:793709920104480769> Status changed to `idle`!")
+                    .setColor('BLUE')
                     message.channel.send(sux)
                     } else {
                         if(content != ['dnd', 'online', 'idle']) {
                             const meh = new MessageEmbed()
                             .setAuthor(`${client.user.username}`, `${client.user.displayAvatarURL()}`)
-                            .setDescription(`<a:negative_squared_cross_mark:793709920104480769> Please enter a **valid** status type!
+                            .setDescription(`<a:no_:793709920104480769> Please enter a **valid** status type!
                             **Options:**
                             dnd (do not disturb)
                             online
