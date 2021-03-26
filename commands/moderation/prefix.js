@@ -11,7 +11,7 @@ module.exports = {
   let prefix = args.join(" ")
     //Start
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply("You dont have a permission to use this command!")
-    if(!prefix) return message.reply{"Please enter a new prefix");
+    if(!prefix) return message.reply("Please enter a new prefix");
     (`${message.guild.id}-prefix`, prefix)
     return message.channel.send(`Set the prefix to **${prefix}**`)
     }

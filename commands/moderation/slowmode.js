@@ -13,7 +13,7 @@ module.exports = {
         return message.channel.send(
           `You Don't Have Permission To Use This Command!`
       );
-      
+
       const { channel } = message
       
       if (args.length < 1) {
