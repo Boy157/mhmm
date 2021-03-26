@@ -10,7 +10,7 @@ module.exports = {
   run: async (client, message, args) => {
     //Start
     message.delete();
-    if (!message.member.hasPermission("BAN_MEMBERS"))
+    if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
       );
@@ -61,8 +61,8 @@ module.exports = {
     let embed = new MessageEmbed()
       .setColor(Color)
       .setTitle(`Member Unbanned!`)
-      .addField(`Moderator`, `${message.author.tag} (${message.author.id}}`)
-      .addField(`Unbanned Member`, `${Member.user.tag} (${Member.user.id}`)
+      .addField(`Moderator`, `${message.author.tag}}`)
+      .addField(`Unbanned Member`, `${Member.user.tag}`)
       .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();

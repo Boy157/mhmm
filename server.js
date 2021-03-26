@@ -5,7 +5,7 @@ const client = new Discord.Client({
 });
 const db = require("quick.db");
 const fetch = require("node-fetch");
-const { Prefix, Token, Color } = require(".env");
+const { Prefix, Color } = require("./config.js");
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
