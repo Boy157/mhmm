@@ -38,7 +38,7 @@ module.exports = {
     let Result = sizes[Math.floor(Math.random() * sizes.length)];
 
     let embed = new MessageEmbed()
-      .setColor(Color)
+      .setColor("RANDOM")
       .setTitle(`Pp Machine`)
       .setDescription(`${Member.user.username}'s PP Is\n${Result}`)
       .setFooter(`Requested by ${message.author.username}`)

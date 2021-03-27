@@ -14,8 +14,8 @@ module.exports = {
     let result = Math.floor(Math.random() * coins.length);
 
     const embed = new MessageEmbed()
-      .setColor(Color)
-      .setTitle(`Coin Is`)
+      .setColor("RANDOM")
+      .setTitle(`The result is`)
       .setDescription(coins[result])
       .setFooter(`Fliped by ${message.author.username}`)
       .setTimestamp();

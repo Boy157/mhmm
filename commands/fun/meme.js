@@ -14,7 +14,7 @@ module.exports = {
       .then(res => res.json())
       .then(json => {
         let embed = new MessageEmbed()
-          .setColor(Color)
+          .setColor("RANDOM")
           .setTitle(`${json.title}`)
           .setURL(json.postLink)
           .setImage(json.url)

@@ -12,7 +12,7 @@ module.exports = {
     if(!snip) return message.channel.send(":x: Didnt Found Anything.")
 
     let embed = new Discord.MessageEmbed()
-    .setColor("BLUE")
+    .setColor("RANDOM")
     .setAuthor(snip.user,snip.profilephoto)
     .setDescription(`**Message:** \`${snip.msg}\``)
     .setTimestamp(snip.date)

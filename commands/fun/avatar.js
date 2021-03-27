@@ -20,7 +20,7 @@ module.exports = {
   
   if(!user.avatarURL()) return message.reply(`:x: ${user.tag} profile photo not found`)
   let embed = new Discord.MessageEmbed()
-   .setColor("BLUE")
+   .setColor("RANDOM")
    .setDescription(`[PNG](${user.avatarURL({format: "png"})})`)
    .setImage(user.avatarURL({dynamic: true})+"?size=4096") //Size :D
    .setTimestamp()

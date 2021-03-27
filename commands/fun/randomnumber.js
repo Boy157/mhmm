@@ -13,7 +13,7 @@ module.exports = {
     let result = Math.floor(Math.random() * 101);
 
     const embed = new MessageEmbed()
-      .setColor(Color)
+      .setColor("RANDOM")
       .setTitle(`Random Number Is`)
       .setDescription([result])
       .setFooter(`1 - 100`)
