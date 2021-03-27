@@ -53,7 +53,7 @@ modules.forEach(function(module) {
 });
 
 client.on("message", async message => {
-let pref = db.get(`prefix.$(message.guild.id`);
+let pref = db.get(`prefix.${message.guild.id}`);
 let prefix;
   if (!pref) {
     prefix = ";;"
@@ -82,8 +82,14 @@ let prefix;
     let data = db.get(`prefix.${message.guild.id}`);
     if (!message.flags[0] === "default") {
       await db.delete(`prefix.${message.guild.id}`);
-      return message.channel.send
+      return message.channel.send("Prefix has been changed to default.");
     }
+    
+    let symbol = args.join(" ")
+    if (!symbol) return message.channel.send("Please input the prefix.");
+    
+    db.set(`prefix.${message.guild.id}`, symbol);
+    return message.channel.send(`Prefix has been changed to **${symbol}**`);
   }
   
   
