@@ -53,10 +53,14 @@ modules.forEach(function(module) {
 });
 
 client.on("message", async message => {
-let prefix = (`${message.guild.id}-prefix`)|| ".";
+let pref = db.get(`prefix.$(message.guild.id`);
+let prefix;
+  if (!pref) {
+    prefix = ";;"
+  }
+
     if (message.author.bot) return;
     if (!message.guild) return;
-    if (prefix === null) prefix = exports.Prefix;
     if (!message.member)
       message.member = await message.guild.fetchMember(message);
 
