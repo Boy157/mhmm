@@ -5,9 +5,7 @@ const client = new Discord.Client({
 });
 const db = require("quick.db");
 const fetch = require("node-fetch");
-const Enmap = require('enmap');
-const Color = require("./config.js");
-const Prefix = ";;";
+const { Prefix, Token, Color } = require("./config.js");
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
@@ -54,46 +52,21 @@ modules.forEach(function(module) {
 });
 
 client.on("message", async message => {
-    if (message.author.bot) return;
+  if (message.author.bot) return;
     if (!message.guild) return;
+    let prefix = db.get(`prefix_${message.guild.id}`);
+    if (prefix === null) prefix = exports.Prefix;
     if (!message.member)
       message.member = await message.guild.fetchMember(message);
-  
-let pref = db.get(`prefix.${message.guild.id}`);
-let prefix;
-  if (!pref) {
-    prefix = ";;";
-  } else {
-    prefix = pref;
-  }
 
   if (!message.content.startsWith(Prefix)) return;
-  
-  let args = message.content.slice (prefix.length).trim().split(/ +/g);
-  let msg = message.content.toLowerCase();
-  let cmd = args.shift().toLowerCase();
 
-  message.flags = [];
-  while (args[0] && args [0][0] === ".") {
-    message.flags.push(args.shift().slice(1));
-  } 
-  
-  if (msg.startsWith(prefix + "prefix")) {
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You dont have enough permission");
-    let data = db.get(`prefix.${message.guild.id}`);
-    if (message.flags[0] === "default") {
-      await db.delete(`prefix.${message.guild.id}`);
-      return message.channel.send("Prefix has been changed to default.");
-    }
-    
-    let symbol = args.join(" ");
-    if (!symbol) return message.channel.send("Please input the prefix.");
-    
-    db.set(`prefix.${message.guild.id}`, symbol);
-    return message.channel.send(`Prefix has been changed to **${symbol}**`);
-  }
-  
-  
+  const args = message.content
+    .slice(Prefix.length)
+    .trim()
+    .split(" ");
+  const cmd = args.shift().toLowerCase();
+
   if (cmd.length === 0) return;
 
   let command =
@@ -115,7 +88,7 @@ let prefix;
 
 setInterval(async () => {
   await fetch("https://aiuwhdiuawhdiuawduhaw.glitch.me").then(console.log("Pinged!"));
-}, 240000 );
+}, 240000);
 
 client.snipe = new Map();
 
