@@ -80,12 +80,12 @@ let prefix;
   if (msg.startsWith(prefix + "prefix")) {
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You dont have enough permission");
     let data = db.get(`prefix.${message.guild.id}`);
-    if (!message.flags[0] === "default") {
+    if (message.flags[0] === "default") {
       await db.delete(`prefix.${message.guild.id}`);
       return message.channel.send("Prefix has been changed to default.");
     }
     
-    let symbol = args.join(" ")
+    let symbol = args.join(" ");
     if (!symbol) return message.channel.send("Please input the prefix.");
     
     db.set(`prefix.${message.guild.id}`, symbol);
