@@ -13,7 +13,7 @@ client.aliases = new Discord.Collection();
 client.on("ready", async () => {
   console.log(`Ready`);
   client.user
-    .setActivity(`;;help`, { type: "PLAYING" })
+    .setActivity(`Nothing`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
 
@@ -53,18 +53,18 @@ modules.forEach(function(module) {
 });
 
 client.on("message", async message => {
-let pref = db.get(`prefix.${message.guild.id}`);
-let prefix;
-  if (!pref) {
-    prefix = ";;"
-  } else {
-    prefix = pref;
-  }
-
     if (message.author.bot) return;
     if (!message.guild) return;
     if (!message.member)
       message.member = await message.guild.fetchMember(message);
+  
+let pref = db.get(`prefix.${message.guild.id}`);
+let prefix;
+  if (!pref) {
+    prefix = ";;";
+  } else {
+    prefix = pref;
+  }
 
   if (!message.content.startsWith(Prefix)) return;
   
