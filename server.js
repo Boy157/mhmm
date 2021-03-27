@@ -57,6 +57,8 @@ let pref = db.get(`prefix.$(message.guild.id`);
 let prefix;
   if (!pref) {
     prefix = ";;"
+  } else {
+    prefix = pref;
   }
 
     if (message.author.bot) return;
@@ -65,13 +67,26 @@ let prefix;
       message.member = await message.guild.fetchMember(message);
 
   if (!message.content.startsWith(Prefix)) return;
+  
+  let args = message.content.slice (prefix.length).trim().split(/ +/g);
+  let msg = message.content.toLowerCase();
+  let cmd = args.shift().toLowerCase();
 
-  const args = message.content
-    .slice(Prefix.length)
-    .trim()
-    .split(" ");
-  const cmd = args.shift().toLowerCase();
-
+  message.flags = [];
+  while (args[0] && args [0][0] === ".") {
+    message.flags.push(args.shift().slice(1));
+  } 
+  
+  if (msg.startsWith(prefix + "prefix")) {
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("You dont have enough permission");
+    let data = db.get(`prefix.${message.guild.id}`);
+    if (!message.flags[0] === "default") {
+      await db.delete(`prefix.${message.guild.id}`);
+      return message.channel.send
+    }
+  }
+  
+  
   if (cmd.length === 0) return;
 
   let command =
