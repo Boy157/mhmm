@@ -6,7 +6,8 @@ const client = new Discord.Client({
 const db = require("quick.db");
 const fetch = require("node-fetch");
 const Enmap = require('enmap');
-const { Prefix, Color } = require("./config.js");
+const Color = require("./config.js");
+const Prefix = ";;";
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
