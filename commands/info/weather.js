@@ -25,7 +25,7 @@ module.exports = {
       var location = result[0].location;
 
       const Weather = new Discord.MessageEmbed()
-        .setColor(Color)
+        .setColor("RANDOM")
         .setTitle(`${location.name} Weather!`)
         .setDescription(`${current.skytext}`)
         .setThumbnail(current.imageUrl)
