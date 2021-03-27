@@ -20,9 +20,9 @@ module.exports = {
       }
   
       let embed = new Discord.MessageEmbed()
-        .setColor(Color)
+        .setColor("RANDOM")
         .setTitle(`Invite Me!`)
-        .setDescription(`[Click here to invite](https://discord.com/oauth2/authorize?client_id=824900752832593940&permissions=8&scope=bot)`)
+        .setDescription("[Click here to invite](https://discord.com/oauth2/authorize?client_id=824900752832593940&permissions=8&scope=bot)`" + "\n\n" + "`[test](https://youtube.com)`")
         .setFooter(`Requested by ${message.author.username}`)
         .setTimestamp();
         message.channel.send(embed);
