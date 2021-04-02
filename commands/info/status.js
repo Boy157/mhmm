@@ -4,9 +4,10 @@ module.exports = {
     name: 'status',
     aliases: [],
     run: async (client, message, args) => {
-
-        if(!message.author.id === '723506204537520179') return;
-
+        if (message.author.id !== '723506204537520179') {
+           return message.channel.send(`You Don't Have Permission To Use This Command!`)
+        }
+      
         const content = args.join(" ")
         const splitt = content.split('');
 
