@@ -9,7 +9,7 @@ module.exports = {
     permissionError: `You dont have permission to use this command.`,
     run: async (bot, message, args) => {
       
-      if (message.author != '723506204537520179') return
+      if (message.author !== '723506204537520179') return
       await message.reply("Shutting Down...")
       process.exit()
   
