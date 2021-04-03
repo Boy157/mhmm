@@ -6,7 +6,6 @@ module.exports = {
   name: "calculator",
   aliases: ["calc"],
   description: "Calculate something!",
-  usage: ".",
   run: async (client, message, args) => {
     //Start
     const firstValue = Number(args[0]);

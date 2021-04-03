@@ -15,7 +15,7 @@ module.exports = {
         `You Don't Have Permission To Use This Command!`
       );
 
-    let Member = message.mentions.users.first(); message.guild.channels.cache.get(args[0]);
+    let Member = message.mentions.users.first(); message.guild.members.cache.get(args[0]);
 
     if (!Member)
       return message.channel.send(

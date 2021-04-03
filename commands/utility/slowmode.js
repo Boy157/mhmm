@@ -16,8 +16,7 @@ module.exports = {
 
       const { channel } = message
       
-      if (args.length < 1) {
-        message.reply('Please set a new duration')
+      if (args.length < 1) {message.reply('Please set a new duration without variable!!, example: <prefix>slowmode **5**.)') 
         return
       }
       
@@ -28,7 +27,7 @@ module.exports = {
       
       if (isNaN(duration)) {
         message.reply(
-          'Please give a right number'
+          'Please give a right number. **dont put a variable like H and S'
         )
         return
       }
