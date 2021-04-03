@@ -20,5 +20,10 @@ module.exports = {
     await lockChannel.updateOverwrite(role, {
       SEND_MESSAGES: true
     }).catch(err => console.log(err));
+    
+    let embed = new Discord.MessageEmbed()
+    .setColor("RANDOM")
+    .setDescription(`:unlock: | Channel has been unlocked!!`)
+    message.channel.send(embed);
   }
 }

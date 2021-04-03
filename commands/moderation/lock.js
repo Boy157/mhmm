@@ -25,8 +25,7 @@ module.exports = {
     
     let embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .setDescription(`Channel has been locked`)
-    .setTimestamp()
+    .setDescription(`:closed_lock_with_key: | Channel has been locked!!`)
     message.channel.send(embed);
   }
 }
