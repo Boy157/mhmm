@@ -13,18 +13,12 @@ module.exports = {
        return message.channel.send(`You don't have enough Permissions`);
     }
     
-    message.channel.overwritePermissions([
-      {
-        id: message.guild.id,
-        allow: ["SEND_MESSAGES"]
-      }
-    ]);
+    const role = message.guild.roles.cache.get('777773709997899836');
+    let lockChannel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]);
+    if (!lockChannel) lockChannel = message.channel;
     
-    const embed = new Discord.MessageEmbed()
-    
-      .setDescription(`:lock: Unlocked ${message.channel}`)
-      .setColor("BLUE");
-    await message.channel.send(embed);
-    
+    await lockChannel.updateOverwrite(role, {
+      SEND_MESSAGES: true
+    }).catch(err => console.log(err));
   }
-};
+}
