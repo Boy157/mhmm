@@ -14,10 +14,10 @@ module.exports = {
     .setColor("RANDOM")
     .setTitle(`${client.user.username} Commands!`)
     .setDescription(`**Atreus Available Commands! and ;;help (command) for more information**` + 
-    "\n\n**:smile: | Fun**\n`Avatar` `Coinflip` `Howgay` `Meme` `Translate` `Rate` `Dicksize` `Ascii` `Hack` `Randomnumber` `Snipe`" + "\n\n" + 
-    "**:tools: | Utility**\n`Calculator`" + "\n\n" +
+    "\n\n**:smile: | Fun**\n`Avatar` `Coinflip` `Howgay` `Meme` `Rate` `Dicksize` `Ascii` `Hack` `Randomnumber` " + "\n\n" + 
+    "**:tools: | Utility**\n`Calculator` `Snipe` `Weather` `Userinfo`" + "\n\n" +
     "**:shield: | Moderation**\n`Purge` `Nuke` `Mute` `Unmute` `Lock` `Unlock` `Kick` `Ban` `Unban` `Warn` `Slowmode`" + "\n\n"+
-    "**:scroll: | Information**\n`Help` `Weather` `Userinfo` `Ping` `Invite`")
+    "**:scroll: | Bot Informations**\n`Help` `Ram` `Ping` `Invite`")
     .setFooter(`Requested By ${message.author.username}`)
     .setTimestamp();
 
