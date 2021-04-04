@@ -24,7 +24,8 @@
     "discord-prefix": "^1.1.0",
     "enmap": "^5.8.3",
     "index.js": "^0.0.3",
-    "mongoose": "^5.12.1"
+    "mongoose": "^5.12.1",
+    "workerpool": "^6.1.2"
   },
   "engines": {
     "node": "12.x"

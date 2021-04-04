@@ -24,12 +24,6 @@ module.exports = {
       message.channel.send(`${firstValue} + ${secondValue} + ${thirdValue} = ${result}.`);
     }
     
-    if (args[1] == '+') {
-      let result = firstValue + secondValue + thirdValue;
-      message.channel.send(`${firstValue} + ${secondValue} + ${thirdValue} = ${result}.`);
-    }
-    
-    
     if (args[1] == '-') {
       let result = firstValue - secondValue;
       message.channel.send(`${firstValue} - ${secondValue} = ${result}.`);
