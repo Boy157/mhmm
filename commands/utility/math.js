@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 const { Color } = require("../../config.js");
 
 module.exports = {
-  name: "calculator",
+  name: "calculato",
   aliases: ["calc"],
   description: "Calculate something!",
   run: async (client, message, args) => {
