@@ -7,7 +7,7 @@ module.exports = {
   name: "math",
   aliases: ["calc"],
   description: "Calculate something!",
-  run: async (client, message, args) => {
+  run: async (client, message, args,) => {
     //Start
     if(!args[0]) return message.channel.send('Please give a valid question');
     
@@ -21,7 +21,7 @@ module.exports = {
     
     let embed = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .setTitle('Calculator')
+    .setTitle('Calculator Online')
     .addField('Question', `\`\`\`css\n${args.join(' ')}\`\`\``)
     .addField('Answer', `\`\`\`css\n${resp}\`\`\``)
     .setFooter(`Requested By ${message.author.username}`)
