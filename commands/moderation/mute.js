@@ -31,6 +31,9 @@ module.exports = {
     if (Member.roles.cache.has(Role)) {
       return message.channel.send(`Member Is Already Muted!`);
     }
+    
+    if (Member.id === message.guild.owner.user.id)
+      return message.channel.send(`You Can't mute Owner Of Server!`);
 
     let Reason = args.slice(1).join(" ");
 
