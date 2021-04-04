@@ -43,14 +43,14 @@ module.exports = {
     let Embed = new MessageEmbed()
       .setColor("RANDOM")
       .setTitle(`Member Muted!`)
-      .addField(`Moderator`, `**${message.author.tag}`)
-      .addField(`Muted Member`, `${Member.user.tag}`)
-      .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
-      .addField(`Duration`, `${time || "No Time selected!"}`)
+      .addField(`Moderator`, `_${message.author.tag}_`)
+      .addField(`Muted Member`, `_${Member.user.tag}_`)
+      .addField(`Reason`, `_${Reason}_` || `{"No Reason Provided!"}`)
+      .addField(`Duration`, `_${time}_` || `{"No Time selected!"}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
     
-
+    setTimeout(async function)
     if (Role && !Member.roles.cache.has(Role)) {
       Member.roles.add([Role]);
       return message.channel.send(Embed);
