@@ -9,14 +9,14 @@ module.exports = {
   description: "Calculate something!",
   run: async (client, message, args,) => {
     //Start
-    if(!args[0]) return message.channel.send('Please give a valid question');
+    if(!args[0]) return message.channel.send('Please give a question');
     
     let resp;
     
     try {
       resp = math.evaluate(args.join(" "))
     } catch (e) {
-      return message.channel.send('Please provide a valid question')
+      return message.channel.send('Please give a **_valid_** question!!')
     }
     
     let embed = new Discord.MessageEmbed()
