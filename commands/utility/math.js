@@ -20,6 +20,7 @@ module.exports = {
     if (!thirdValue) return message.channel.send('The third value stated is not a number or u need to give space in the middle');
     
     if (args[1] == '+') {
+      let result = firstValue + secondValue;
       let result = firstValue + secondValue + thirdValue;
       message.channel.send(`${firstValue} + ${secondValue} + ${thirdValue} = ${result}.`);
     }
