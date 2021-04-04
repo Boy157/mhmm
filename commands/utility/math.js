@@ -9,7 +9,7 @@ module.exports = {
   description: "Calculate something!",
   run: async (client, message, args) => {
     //Start
-    if(!args[0]) return message.channel.send('Please Provide a question');
+    if(!args[0]) return message.channel.send('Please give a valid question');
     
     let resp;
     
@@ -24,6 +24,8 @@ module.exports = {
     .setTitle('Calculator')
     .addField('Question', `\`\`\`css\n${args.join(' ')}\`\`\``)
     .addField('Answer', `\`\`\`css\n${resp}\`\`\``)
+    .setFooter(`Requested By ${message.author.username}`)
+
     
     message.channel.send(embed);
   }
