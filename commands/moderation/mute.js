@@ -31,11 +31,10 @@ module.exports = {
     if (Member.roles.cache.has(Role)) {
       return message.channel.send(`Member Is Already Muted!`);
     }
-    
-    if (Member.id === message.guild.owner.user.id)
-      return message.channel.send(`You Can't mute Owner Of Server!`);
     let time = args[1];
     let Reason = args.slice(2).join(" ");
+    
+    if(!Member.roles.highest.position >= message.member.roles.highest.position) return message.chanel.send('You cant mute a member that higher than you')
 
     let Embed = new MessageEmbed()
       .setColor("RANDOM")
@@ -43,6 +42,7 @@ module.exports = {
       .addField(`Moderator`, `${message.author.tag}`)
       .addField(`Muted Member`, `${Member.user.tag}`)
       .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
+      .addField(`Duration: ${time}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
 
