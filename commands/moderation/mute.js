@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const { Color } = require("../../config.js");
+const ms = require("ms");
 
 module.exports = {
   name: "mute",
@@ -33,6 +34,9 @@ module.exports = {
     }
     let time = args[1];
     let Reason = args.slice(2).join(" ");
+    let User = message.guild.member(Member);
+
+    if (!User.bannable) return message.channel.send(`I Can't Mute That Member!`);
     
     if(!Member.roles.highest.position >= message.member.roles.highest.position) return message.chanel.send('You cant mute a member that higher than you')
 
@@ -45,13 +49,15 @@ module.exports = {
       .addField(`Duration: ${time}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
+    
+    await Member.roles.add(muteRole.id).catch(err => console.log(err));
+    await Member.roles.remove(memberRole.id).catch(err => console.log(err));
+    await Member.send(muteEmbed).catch(err => console.log(err));
 
-    if (Role && !Member.roles.cache.has(Role)) {
-      Member.roles.add([Role]);
-      return message.channel.send(Embed);
-    } else {
-      return message.channel.send(`Something Went Wrong, Try Again Later!`);
-    }
+    setTimeout(async function () {
+      await Member.roles.remove(muteRole.id).catch(err => console.log(err));
+      await Member.send(`Your mute has been lifted.`).catch(err => console.log(err));
+    }, ms(time));
 
     //End
   }
