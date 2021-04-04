@@ -50,14 +50,13 @@ module.exports = {
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
     
-    await Member.roles.add(muteRole.id).catch(err => console.log(err));
-    await Member.roles.remove(memberRole.id).catch(err => console.log(err));
-    await Member.send(muteEmbed).catch(err => console.log(err));
 
-    setTimeout(async function () {
-      await Member.roles.remove(muteRole.id).catch(err => console.log(err));
-      await Member.send(`Your mute has been lifted.`).catch(err => console.log(err));
-    }, ms(time));
+    if (Role && !Member.roles.cache.has(Role)) {
+      Member.roles.add([Role]);
+      return message.channel.send(Embed);
+    } else {
+      return message.channel.send(`Something Went Wrong, Try Again Later!`);
+    }
 
     //End
   }
