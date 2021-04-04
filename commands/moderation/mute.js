@@ -46,7 +46,7 @@ module.exports = {
       .addField(`Moderator`, `${message.author.tag}`)
       .addField(`Muted Member`, `${Member.user.tag}`)
       .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
-      .addField(`Duration: ${time}`)
+      .addField(`Duration`, `${time}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
     
