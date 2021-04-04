@@ -34,8 +34,8 @@ module.exports = {
     
     if (Member.id === message.guild.owner.user.id)
       return message.channel.send(`You Can't mute Owner Of Server!`);
-
-    let Reason = args.slice(1).join(" ");
+    let time = args[1];
+    let Reason = args.slice(2).join(" ");
 
     let Embed = new MessageEmbed()
       .setColor("RANDOM")
