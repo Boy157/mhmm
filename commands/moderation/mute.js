@@ -16,20 +16,20 @@ module.exports = {
         `You Don't Have Permission To Use This Command!`
       );
 
-    let mentionedMember =
+    let muteUser =
       message.mentions.members.first() ||
       message.guild.members.cache.get(args[0]);
 
-    if (!mentionedMember) return message.channel.send(`Please Mention A User!`);
+    if (!muteUser) return message.channel.send(`Please Mention A User!`);
 
     let MuteRole = message.guild.roles.cache.find(role => role.name === "Muted").id;
 
-    if (!Role)
+    if (!MuteRole)
       return message.channel.send(
         `Please Create Mute Role | Role Name : Muted`
       );
 
-    if (mentionedMember.roles.cache.has(Role)) {
+    if (muteUser.roles.cache.has(Role)) {
       return message.channel.send(`Member Is Already Muted!`);
     }
     let time = args[1];
@@ -38,7 +38,7 @@ module.exports = {
 
     if (!User.bannable) return message.channel.send(`I Can't Mute That Member!`);
     
-    if(!mentionedMember.roles.highest.position >= message.member.roles.highest.position) return message.chanel.send('You cant mute a member that higher than you')
+    if(!muteUser.roles.highest.position >= message.member.roles.highest.position) return message.chanel.send('You cant mute a member that higher than you')
 
     let Embed = new MessageEmbed()
       .setColor("RANDOM")
@@ -50,8 +50,12 @@ module.exports = {
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
     
-    setTimeout(async function () {
-    muteUser.roles.remove(Role, `Temporary mute expired.`);)
+    
+  	timeout(minutes, muteUser, muteRole, message)
+
+    function timeout(minutes, muteUser, mutedRole, message) {
+      setTimeout(async function () {
+        muteUser.roles.remove(mutedRole);
               
     }, ms (time));
 
@@ -61,7 +65,3 @@ module.exports = {
     } else {
       return message.channel.send(`Something Went Wrong, Try Again Later!`);
     }
-
-    //End
-  }
-};
