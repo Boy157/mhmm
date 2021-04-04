@@ -22,7 +22,7 @@ module.exports = {
 
     if (!mentionedMember) return message.channel.send(`Please Mention A User!`);
 
-    let Role = message.guild.roles.cache.find(role => role.name === "Muted").id;
+    let MuteRole = message.guild.roles.cache.find(role => role.name === "Muted").id;
 
     if (!Role)
       return message.channel.send(
@@ -51,7 +51,7 @@ module.exports = {
       .setTimestamp();
     
     setTimeout(async function () {
-      await 
+    muteUser.roles.remove(Role, `Temporary mute expired.`);)
               
     }, ms (time));
 
