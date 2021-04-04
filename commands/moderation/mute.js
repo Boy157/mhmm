@@ -9,8 +9,8 @@ module.exports = {
   usage: "Mute <Mention User> | <Reason>",
   run: async (client, message, args) => {
     //Start
-    message.delete();
-    if (!message.member.hasPermission("ADMINISTRATOR"))
+    
+    if (!message.member.hasPermission("MANAGE_ROLES"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
       );
