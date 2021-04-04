@@ -50,7 +50,8 @@ module.exports = {
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
     
-    setTimeout(async function)
+    setTimeout(async function () {
+    }, ms(time));
     if (Role && !Member.roles.cache.has(Role)) {
       Member.roles.add([Role]);
       return message.channel.send(Embed);
