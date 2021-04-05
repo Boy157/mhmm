@@ -13,9 +13,16 @@ client.aliases = new Discord.Collection();
 
 client.on("ready", async () => {
   console.log(`Ready`);
-  client.user
-    .setActivity(`Nothing`, { type: "PLAYING" })
-    .catch(error => console.log(error));
+  
+  function pickStatus() {
+    let status = ['Nothing', 'Game', ';;help'];
+    let Status = Math.floor(Math.random() * status.length);
+    
+    client.user.setActivity(status[Status], {
+      type: "PLAYING"
+    });
+  };
+  setInterval(pickStatus, 10000);
 });
 
 function keepAlive() {
