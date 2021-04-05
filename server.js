@@ -4,8 +4,10 @@ const client = new Discord.Client({
   disabledEveryone: true
 });
 const db = require("quick.db");
+const express = require("express");
+const server = express();
 const fetch = require("node-fetch");
-const { Prefix, Token, Color } = require("./config.js");
+const { Prefix, Color } = require("./config.js");
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
@@ -15,6 +17,14 @@ client.on("ready", async () => {
     .setActivity(`Nothing`, { type: "PLAYING" })
     .catch(error => console.log(error));
 });
+
+function keepAlive() {
+  server.listen(3000, () => {
+    console.log("server is ready!!" + Date.now());
+  });
+}
+
+module.exports = keepAlive;
 
 client.on("message", async message => {
   if (message.channel.type === "dm") return;
@@ -28,7 +38,7 @@ client.on("message", async message => {
   }
 });
 
-let modules = ["fun", "info","utility", "moderation"];
+let modules = ["fun", "info", "utility", "moderation"];
 
 modules.forEach(function(module) {
   fs.readdir(`./commands/${module}`, function(err, files) {
@@ -53,11 +63,11 @@ modules.forEach(function(module) {
 
 client.on("message", async message => {
   if (message.author.bot) return;
-    if (!message.guild) return;
-    let prefix = db.get(`prefix_${message.guild.id}`);
-    if (prefix === null) prefix = exports.Prefix;
-    if (!message.member)
-      message.member = await message.guild.fetchMember(message);
+  if (!message.guild) return;
+  let prefix = db.get(`prefix_${message.guild.id}`);
+  if (prefix === null) prefix = exports.Prefix;
+  if (!message.member)
+    message.member = await message.guild.fetchMember(message);
 
   if (!message.content.startsWith(Prefix)) return;
 
@@ -87,7 +97,9 @@ client.on("message", async message => {
 });
 
 setInterval(async () => {
-  await fetch("https://aiuwhdiuawhdiuawduhaw.glitch.me").then(console.log("Pinged!"));
+  await fetch("https://aiuwhdiuawhdiuawduhaw.glitch.me").then(
+    console.log("Pinged!")
+  );
 }, 240000);
 
 client.snipe = new Map();
