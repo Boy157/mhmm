@@ -5,9 +5,11 @@ const client = new Discord.Client({
 });
 const db = require("quick.db");
 const express = require("express");
+let PREFIX
 const server = express();
 const fetch = require("node-fetch");
-const { Prefix, Color } = require("./config.js");
+const Prefix = (";;");
+const Color = ("RANDOM");
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
@@ -68,11 +70,21 @@ modules.forEach(function(module) {
   });
 });
 
+client.on('message', async message => {
+   if (db.get(`prefix_${message.guild.id}`) === null) {
+    PREFIX = ";;"
+  }
+  
+  else {
+    PREFIX = db.get(`prefix_${message.guild.id}`)
+}
+  
+})
+
 client.on("message", async message => {
   if (message.author.bot) return;
   if (!message.guild) return;
-  let prefix = db.get(`prefix_${message.guild.id}`);
-  if (prefix === null) prefix = exports.Prefix;
+ 
   if (!message.member)
     message.member = await message.guild.fetchMember(message);
 
@@ -96,7 +108,7 @@ client.on("message", async message => {
       return message.channel.send(
         "I Don't Have Enough Permission To Use This Or Any Of My Commands | Require : Administrator"
       );
-    command.run(client, message, args);
+    command.run(client, message, args, db);
   }
   console.log(
     `User : ${message.author.tag} (${message.author.id}) Server : ${message.guild.name} (${message.guild.id}) Command : ${command.name}`

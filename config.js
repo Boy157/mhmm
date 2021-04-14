@@ -1,4 +1,5 @@
 {
   exports.Color = `BlUE`;
-  exports.Prefix = `;;`;
+  exports.Prefix = `.`;
 }
+
