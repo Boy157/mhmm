@@ -13,8 +13,8 @@ module.exports = {
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
       );
-
-    let Member = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+    
+    let Member = message.mentions.users.first() || message.guild.members.cache.get(args[1]);
     
 
     if (!Member)
@@ -22,8 +22,8 @@ module.exports = {
         `Please Mention A Member That You Want To Ban!`
       );
 
-    if (!message.guild.members.cache.get(Member.id))
-      return message.channel.send(`Please Mention A Valid Member!`);
+    if (!message.guild.members.cache.get(User.id))
+      return message.channel.send(`Please Provide A Valid Member!`);
 
     if (Member.id === message.author.id)
       return message.channel.send(`You Can't Ban Your Self!`);
