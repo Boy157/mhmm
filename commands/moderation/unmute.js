@@ -9,7 +9,7 @@ module.exports = {
   usage: "Unmute <Mention User>",
   run: async (client, message, args) => {
     //Start
-    message.delete();
+    
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
@@ -31,12 +31,15 @@ module.exports = {
     if (!Member.roles.cache.has(Role)) {
       return message.channel.send(`Member Is Already Unmuted!`);
     }
+    let Reason = args.slice(1).join(" ");
+
 
     let Embed = new MessageEmbed()
-      .setColor(Color)
+      .setColor("RANDOM")
       .setTitle(`Member Unmuted!`)
       .addField(`Moderator`, `${message.author.tag}`)
       .addField(`Unmuted Member`, `${Member.user.tag}`)
+      .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
 

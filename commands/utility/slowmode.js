@@ -27,7 +27,7 @@ module.exports = {
       
       if (isNaN(duration)) {
         message.reply(
-          'Please give a right number. **dont put a variable like H and S'
+          'Please give a right number.'
         )
         return
       }

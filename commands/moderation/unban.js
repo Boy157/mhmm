@@ -9,7 +9,7 @@ module.exports = {
   usage: "Unban <Member ID>",
   run: async (client, message, args) => {
     //Start
-    message.delete();
+  
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
@@ -59,7 +59,7 @@ module.exports = {
     }
 
     let embed = new MessageEmbed()
-      .setColor(Color)
+      .setColor("RANDOM")
       .setTitle(`Member Unbanned!`)
       .addField(`Moderator`, `${message.author.tag}}`)
       .addField(`Unbanned Member`, `${Member.user.tag}`)

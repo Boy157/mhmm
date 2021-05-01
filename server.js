@@ -24,7 +24,7 @@ client.on("ready", async () => {
       type: "PLAYING"
     });
   };
-  setInterval(pickStatus, 10000);
+  setInterval(pickStatus, 9000);
 });
 
 function keepAlive() {

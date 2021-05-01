@@ -9,7 +9,6 @@ module.exports = {
   usage: "Kick <Mention Member>",
   run: async (client, message, args) => {
     //Start
-    message.delete();
     if (!message.member.hasPermission("KICK_MEMBERS"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
@@ -19,11 +18,11 @@ module.exports = {
 
     if (!Member)
       return message.channel.send(
-        `Please Mention A Member That You Want To Kick!`
+        `Please Provide A Member That You Want To Kick!`
       );
 
     if (!message.guild.members.cache.get(Member.id))
-      return message.channel.send(`Please Mention A Valid Member!`);
+      return message.channel.send(`Please Provide A Valid Member!`);
 
     if (Member.id === message.author.id)
       return message.channel.send(`You Can't Kick Your Self!`);
@@ -31,7 +30,7 @@ module.exports = {
     if (Member.id === client.user.id)
       return message.channel.send(`Please Don't Kick Me ;-;`);
 
-    if (Member.id === message.guild.owner.user.id)
+    if (Member.id === message.guild.owner.id)
       return message.channel.send(`You Can't Kick Owner Of Server!`);
 
     let Reason = args.slice(1).join(" ");
@@ -48,7 +47,7 @@ module.exports = {
         User.kick({ reason: `${Reason || "No Reason Provided!"}` });
       }, 2000);
       let embed = new Discord.MessageEmbed()
-        .setColor(Color)
+        .setColor("RANDOM")
         .setTitle(`Member Kicked!`)
         .addField(`Moderator`, `${message.author.tag}`)
         .addField(`Kicked Member`, `${Member.tag}`)

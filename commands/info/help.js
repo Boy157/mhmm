@@ -16,8 +16,8 @@ module.exports = {
     .setDescription(`**Atreus Available Commands! and ;;help (command) for more information**` + 
     "\n\n**:smile: | Fun**\n`Avatar` `Coinflip` `Howgay` `hug` `Meme` `Rate` `Dicksize` `Ascii` `Hack` `Randomnumber` " + "\n\n" + 
     "**:tools: | Utility**\n`Math` `Snipe` `Weather` `Userinfo` `Slowmode` `Embed`" + "\n\n" +
-    "**:shield: | Moderation**\n`Purge` `Nuke` `Mute` `Unmute` `Lock` `Unlock` `Kick` `Ban` `Unban` `Warn`" + "\n\n"+
-    "**:scroll: | Bot Informations**\n`Help` `Ram` `Ping` `Invite`")
+    "**:shield: | Moderation**\n`Purge` `Nuke` `Mute` `Unmute` `Lock` `Unlock` `Kick` `Ban` `Unban`" + "\n\n"+
+    "**:scroll: | Bot Informations**\n`Help` `Ping` `Invite`")
     .setFooter(`Requested By ${message.author.username}`)
     .setTimestamp();
 
