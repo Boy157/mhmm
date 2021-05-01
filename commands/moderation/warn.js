@@ -22,7 +22,7 @@ module.exports = {
 
     let Reason = args.slice(1).join(" ");
 
-    client.db.add(`Warnings_${message.guild.id}_${Member.user.id}`, 1);
+    client.db(`Warnings_${message.guild.id}_${Member.user.id}`, 1);
 
     let Warnings = client.db.get(
       `Warnings_${message.guild.id}_${Member.user.id}`

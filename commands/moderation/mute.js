@@ -33,7 +33,7 @@ module.exports = {
       return message.channel.send(`Member Is Already Muted!`);
     }
     let time = args[1];
-    let Reason = args.slice(2).join(" ");
+    let Reason = args.slice(1).join(" ");
     let User = message.guild.member(Member);
 
     if (!User.bannable) return message.channel.send(`I Can't Mute That Member!`);
@@ -45,13 +45,11 @@ module.exports = {
       .setTitle(`Member Muted!`)
       .addField(`Moderator`, `_${message.author.tag}_`)
       .addField(`Muted Member`, `_${Member.user.tag}_`)
-      .addField(`Reason`, `_${Reason}_` || `{"No Reason Provided!"}`)
-      .addField(`Duration`, `_${time}_` || `{"No Time selected!"}`)
+      .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
     
-    setTimeout(async function () {
-    }, ms(time));
+    
     if (Role && !Member.roles.cache.has(Role)) {
       Member.roles.add([Role]);
       return message.channel.send(Embed);
