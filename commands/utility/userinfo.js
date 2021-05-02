@@ -6,7 +6,7 @@ module.exports = {
     run: async (client, message, args) => {
 
     const guild = message.guild;
-    const usr = message.mentions.users.first() || message.author
+    const usr = message.mentions.users.first() || message.author || message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]); 
   
     const membero = guild.members.cache.get(usr.id) 
 
