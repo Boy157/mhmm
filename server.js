@@ -70,17 +70,6 @@ modules.forEach(function(module) {
   });
 });
 
-client.on('message', async message => {
-   if (db.get(`prefix_${message.guild.id}`) === null) {
-    PREFIX = ";;"
-  }
-  
-  else {
-    PREFIX = db.get(`prefix_${message.guild.id}`)
-}
-  
-})
-
 client.on("message", async message => {
   if (message.author.bot) return;
   if (!message.guild) return;
