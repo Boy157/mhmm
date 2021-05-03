@@ -9,7 +9,7 @@ module.exports = {
   usage: "Unban <Member ID>",
   run: async (client, message, args) => {
     //Start
-  
+  message.delete({ timeout: 5000});
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
@@ -67,7 +67,8 @@ module.exports = {
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
 
-    return message.channel.send(embed);
+    return message.channel.send(embed)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     //End
   }

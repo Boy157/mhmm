@@ -4,10 +4,11 @@ const { Color } = require("../../config.js");
 const ms = require("ms");
 
 module.exports = {
-  name: "mute",
-  aliases: [],
-  description: "Mute A User!",
-  usage: "Mute <Mention User> | <Reason>",
+  name: "tempmute",
+  aliases: ["tmute", "tm"],
+  description: "tempmute A User!",
+  usage: "tempmute <Mention User> || id || name <Reason>",
+  cooldown: 3000,
   run: async (client, message, args) => {
     //Start
     message.delete({ timeout: 5000});
@@ -33,7 +34,11 @@ module.exports = {
     if (Member.roles.cache.has(Role)) {
       return message.channel.send(`Member Is Already Muted!`);
     }
-    let Reason = args.slice(1).join(" ");
+  let time = args[1];
+    if (!time) { // Cap at 14 days, larger than 24.8 days causes integer overflow
+      return message.channel.send('Please enter a length of time.');
+      }
+    let Reason = args.slice(2).join(" ");
     let User = message.guild.member(Member);
 
     if (!User.bannable) return message.channel.send(`I Can't Mute That Member!`);
@@ -45,19 +50,25 @@ module.exports = {
       .setTitle(`Member Muted!`)
       .addField(`Moderator`, `_${message.author.tag}_`)
       .addField(`Muted Member`, `_${Member.user.tag}_`)
+      .addField(`Duration`, `${ms(ms(time)) || "No Duration Given."}`)
       .addField(`Reason`, `${Reason || "No Reason Provided!"}`)
       .setFooter(`Requested by ${message.author.username}`)
       .setTimestamp();
     
+        Member.roles.add(Role)
+      setTimeout(() => {
+        Member.roles.remove(Role)
+        }, ms(time))
     
     
     if (Role && !Member.roles.cache.has(Role)) {
       Member.roles.add([Role]);
       return message.channel.send(Embed)
-      .then(msg => msg.delete({ timeout: 5000 }));
+      .then(msg => msg.delete({ timeout: 5000 }));      
     } else {
       return message.channel.send(`Something Went Wrong, Try Again Later!`);
     }
+    
 
     //End
   }

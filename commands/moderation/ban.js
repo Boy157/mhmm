@@ -10,6 +10,7 @@ module.exports = {
   cooldown: "3000",
   run: async (client, message) => {
     //Start
+        message.delete({ timeout: 5000});
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
@@ -62,7 +63,8 @@ module.exports = {
           `You Have Been Banned From **${message.guild.name}** For ${Reason ||
             "No Reason Provided!"}`
         );
-      message.channel.send(embed);
+      message.channel.send(embed)
+      .then(msg => msg.delete({ timeout: 5000 }));
       console.log(
         `User: ${Member.tag} (${Member.id}) Just Got Banned From ${
           message.guild.name
