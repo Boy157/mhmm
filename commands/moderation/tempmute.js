@@ -15,7 +15,8 @@ module.exports = {
     if (!message.member.hasPermission("MANAGE_ROLES"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
-      );
+      )
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     let Member =
       message.mentions.members.first() ||
@@ -29,21 +30,27 @@ module.exports = {
     if (!Role)
       return message.channel.send(
         `Please Create Mute Role | Role Name : Muted`
-      );
+      )
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     if (Member.roles.cache.has(Role)) {
-      return message.channel.send(`Member Is Already Muted!`);
+      return message.channel.send(`Member Is Already Muted!`)
+      .then(msg => msg.delete({ timeout: 5000 }));
     }
   let time = args[1];
     if (!time) { // Cap at 14 days, larger than 24.8 days causes integer overflow
-      return message.channel.send('Please enter a length of time.');
+      return message.channel.send('Please enter a length of time.')
+      .then(msg => msg.delete({ timeout: 5000 }));
       }
     let Reason = args.slice(2).join(" ");
     let User = message.guild.member(Member);
 
-    if (!User.bannable) return message.channel.send(`I Can't Mute That Member!`);
+    if (!User.bannable) return message.channel.send(`I Can't Mute That Member!`)
+    .then(msg => msg.delete({ timeout: 5000 }));
     
-    if(!Member.roles.highest.position >= message.member.roles.highest.position) return message.chanel.send('You cant mute a member that higher than you')
+    if(!Member.roles.highest.position >= message.member.roles.highest.position) return message.chanel.send(
+      'You cant mute a member that higher than you')
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     let Embed = new MessageEmbed()
       .setColor("RANDOM")

@@ -14,7 +14,8 @@ module.exports = {
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
-      );
+      )
+    .then(msg => msg.delete({ timeout: 5000 }));
     
     let messageArray = message.content.split(" ")
     let args = messageArray.slice(1)
@@ -24,25 +25,31 @@ module.exports = {
     if (!Member)
       return message.channel.send(
         `Please Provide A Member That You Want To Ban!`
-      );
+      )
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     if (!message.guild.members.cache.get(Member.id))
-      return message.channel.send(`Please Provide A Valid Member!`);
+      return message.channel.send(`Please Provide A Valid Member!`)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     if (Member.id === message.author.id)
-      return message.channel.send(`You Can't Ban Your Self!`);
+      return message.channel.send(`You Can't Ban Your Self!`)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     if (Member.id === client.user.id)
-      return message.channel.send(`Please Don't Ban Me :'(`);
+      return message.channel.send(`Please Don't Ban Me :'(`)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     if (Member.id === message.guild.owner.id)
-      return message.channel.send(`You Can't Ban Owner Of Server!`);
+      return message.channel.send(`You Can't Ban Owner Of Server!`)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     let Reason = args.slice(1).join(" ");
 
     let User = message.guild.member(Member);
 
-    if (!User.bannable) return message.channel.send(`I Can't Ban That Member!`);
+    if (!User.bannable) return message.channel.send(`I Can't Ban That Member!`)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     try {
       console.log(`Member Is Going To Get Ban!`);
