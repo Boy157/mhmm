@@ -13,23 +13,29 @@ module.exports = {
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
-      );
+      )
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     if (!args[0])
       return message.channel.send(
         `Please Give Me Member ID That You Want To Unban!`
-      );
+      )
+    .then(msg => msg.delete({ timeout: 5000 }));
 
-    if (isNaN(args[0])) return message.channel.send(`Please Give Me Valid ID!`);
+    if (isNaN(args[0])) return message.channel.send(`Please Give Me Valid ID!`)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     if (args[0] === message.author.id)
-      return message.channel.send(`You Are Already Unban!`);
+      return message.channel.send(`You Are Already Unban!`)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     if (args[0] === message.guild.owner.user.id)
-      return message.channel.send(`Server Owner Is Already Unban!`);
+      return message.channel.send(`Server Owner Is Already Unban!`)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     if (args[0] === client.user.id)
-      return message.channel.send(`I Am Already Unban!`);
+      return message.channel.send(`I Am Already Unban!`)
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     let FetchBan = await message.guild.fetchBans();
 
@@ -46,7 +52,8 @@ module.exports = {
     if (!Member)
       return message.channel.send(
         "Please Give Valid Member ID Or Member Is Not Banned!"
-      );
+      )
+    .then(msg => msg.delete({ timeout: 5000 }));
 
     let Reason = args.slice(1).join(" ") || "No Reason Provided!";
 

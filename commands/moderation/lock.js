@@ -12,7 +12,8 @@ module.exports = {
     if (!message.member.hasPermission("ADMINISTRATOR")) {
        return message.channel.send(
         `You dont have enough Permissions`
-      );
+      )
+      .then(msg => msg.delete({ timeout: 5000 }));
     }
     
     const role = message.guild.roles.cache.get('777773709997899836');

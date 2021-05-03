@@ -21,7 +21,7 @@ module.exports = {
       message.guild.members.cache.get(args[0]) ||
       message.guild.members.cache.find(x => x.user.username.toLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]); 
 
-    if (!Member) return message.channel.send(`Please Mention A User!`);
+    if (!Member) return message.channel.send(`Please provide a user!`);
 
     let Role = message.guild.roles.cache.find(role => role.name === "Muted").id;
 
