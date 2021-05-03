@@ -11,7 +11,7 @@ module.exports = {
             return message.channel.send(`You Don't Have Permission To Use This Command!`)
         }
         await message.channel.send(`Restarting bot...`)
-        process.exit();
+        process.exit(1);
     }
   
 }      

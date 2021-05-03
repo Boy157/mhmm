@@ -9,7 +9,7 @@ module.exports = {
   usage: "Unmute <Mention User>",
   run: async (client, message, args) => {
     //Start
-    
+    message.delete({ timeout: 5000});
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
@@ -46,7 +46,8 @@ module.exports = {
 
     if (Role && Member.roles.cache.has(Role)) {
       Member.roles.remove([Role]);
-      return message.channel.send(Embed);
+      return message.channel.send(Embed)
+      .then(msg => msg.delete({ timeout: 5000 }));
     } else {
       return message.channel.send(`Something Went Wrong, Try Again Later!`);
     }

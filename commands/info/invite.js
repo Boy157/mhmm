@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const { MessageFlags } = require("discord.js");
 const { Color } = require("../../config.js");
 
+
 module.exports = {
     name: "invite",
     aliases: [],

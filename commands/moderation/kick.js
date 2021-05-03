@@ -9,6 +9,8 @@ module.exports = {
   usage: "Kick <Mention Member>",
   run: async (client, message, args) => {
     //Start
+    message.delete({ timeout: 5000});
+
     if (!message.member.hasPermission("KICK_MEMBERS"))
       return message.channel.send(
         `You Don't Have Permission To Use This Command!`
@@ -59,7 +61,8 @@ module.exports = {
           `You Have Been Kicked From **${message.guild.name}** For ${Reason ||
             "No Reason Provided!"}`
         );
-      message.channel.send(embed);
+      message.channel.send(embed)
+      .then(msg => msg.delete({ timeout: 5000 }));
       console.log(
         `User: ${Member.tag} (${Member.id}) Just Got Kicked From ${
           message.guild.name
