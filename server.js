@@ -88,7 +88,7 @@ client.on("message", async message => {
   if (cmd.length === 0) return;
 
   let command =
-    client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
+    client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd))
 
   if (!command) return;
 
@@ -109,6 +109,7 @@ setInterval(async () => {
     console.log("Pinged!")
   );
 }, 240000);
+
 
 client.snipe = new Map();
 
