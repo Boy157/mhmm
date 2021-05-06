@@ -24,7 +24,7 @@ module.exports = {
         .setColor("RANDOM")
         .setTitle(`:dart: | Invite This Bot`)
         .setDescription("[Click here to invite](https://discord.com/oauth2/authorize?client_id=824900752832593940&permissions=8&scope=bot)" + 
-              "\n\n" + ":love_letter: **| Hangout Server**\n[Click here to join discord](h  https://discord.gg/BWunMRGhwr)")
+              "\n\n" + ":love_letter: **| Hangout Server**\n[Click here to join discord](https://discord.gg/BWunMRGhwr)")
         .setFooter(`Requested by ${message.author.username}`)
         .setTimestamp();
         message.channel.send(embed);
