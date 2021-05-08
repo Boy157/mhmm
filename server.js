@@ -3,6 +3,7 @@ const fs = require("fs");
 const client = new Discord.Client({
   disabledEveryone: true
 });
+"node server.js"
 const db = require("quick.db");
 const express = require("express");
 let PREFIX
@@ -47,7 +48,7 @@ client.on("message", async message => {
   }
 });
 
-let modules = ["fun", "info", "utility", "moderation"];
+let modules = ["fun", "info", "utility", "moderation", "owner"];
 
 modules.forEach(function(module) {
   fs.readdir(`./commands/${module}`, function(err, files) {
