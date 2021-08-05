@@ -21,7 +21,7 @@ module.exports = {
       
     
     try {
-      await user.send(args.slice(0).join(" "))
+      await user.send(args.slice(1).join(" "))
       return message.channel.send("I have dmed the user.");
     }
       catch {

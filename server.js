@@ -105,6 +105,7 @@ client.on("message", async message => {
   );
 });
 
+
 setInterval(async () => {
   await fetch("https://tricky-southern-gem.glitch.me").then(
     console.log("Pinged!")

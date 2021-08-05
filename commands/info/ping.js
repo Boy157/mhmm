@@ -4,6 +4,7 @@ const { Color } = require("../../config.js");
 
 module.exports = {
   name: "ping",
+  cooldown: 5,
   aliases: [],
   description: "Pong!",
   usage: "Ping",

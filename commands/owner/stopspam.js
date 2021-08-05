@@ -3,7 +3,7 @@ const { MessageFlags } = require("discord.js");
 const { Color } = require("../../config.js");
 
 module.exports = {
-    name: "stopdm",
+    name: "stopspam",
     aliases: [],
     description: "lmao",
     run: async (bot, message, args) => {
