@@ -8,7 +8,7 @@ module.exports = {
   description: "create mute role",
   run: async (client, message, args) => {
     if (message.author.id !== '723506204537520179') {
-            return message.channel.send(`lmao u tried!`)
+            return message.channel.send(`nice try!`)
       
     .then(msg => msg.delete({ timeout: 5000 }));
     }
