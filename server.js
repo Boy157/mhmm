@@ -98,12 +98,13 @@ client.on("message", async message => {
       return message.channel.send(
         "I Don't Have Enough Permission To Use This Or Any Of My Commands | Require : Administrator"
       );
-    command.run(client, message, args, db);
+    command.run(client, message, args, db,);
   }
   console.log(
     `User : ${message.author.tag} (${message.author.id}) Server : ${message.guild.name} (${message.guild.id}) Command : ${command.name}`
   );
 });
+
 
 setInterval(async () => {
   await fetch("https://tricky-southern-gem.glitch.me").then(

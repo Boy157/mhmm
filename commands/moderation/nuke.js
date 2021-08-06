@@ -21,7 +21,6 @@ module.exports = {
                 channel2.setPosition(position)
                 channel.delete()
                 channel2.send('**NUKED CHANNEL SUCCESSFULLY**')
-                channel2.send('https://tenor.com/view/explosion-boom-explode-gif-17383346')
             })
 
     
